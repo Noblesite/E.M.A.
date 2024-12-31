@@ -1,0 +1,262 @@
+/* Reset default margin and padding for the body and HTML */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: #121212; /* Match the dark theme */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Ensure all elements use border-box sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* General layout for the dashboard */
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* White text */
+  gap: 10px; /* Space between sections */
+}
+
+.chat-history {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  border-right: 1px solid #333;
+  height: 100%; /* Full height */
+}
+
+.branding {
+  text-align: center;
+  padding: 10px;
+  background-color: #121212; /* Darker background for the logo */
+  border-bottom: 1px solid #333;
+}
+
+.branding-icon {
+  width: 50px; /* Adjust size */
+  height: 50px;
+  border-radius: 50%; /* Optional for a circular logo */
+}
+
+.conversations-container {
+  flex: 1; /* Fills the space between branding and footer */
+  overflow-y: auto; /* Scrollable list of conversations */
+  padding: 10px;
+}
+
+.conversations-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conversations-container li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.conversations-container li:hover {
+  background-color: #444;
+}
+
+.chat-history-footer {
+  background-color: #121212; /* Darker background for contrast */
+  color: #cccccc;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #333;
+  font-size: 12px;
+}
+/* Toggle Button */
+.toggle-history {
+  position: fixed; /* Fixed for easy access */
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* Ensure it's above all elements */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #6c757d, #343a40); /* Gray gradient */
+  color: white; /* Icon color */
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.toggle-history:hover {
+  background: linear-gradient(45deg, #5a6268, #23272b); /* Slightly darker gradient on hover */
+}
+/* Chat Section */
+.chat-section {
+  flex: 8; /* 80% width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #1f1f1f; /* Chat background */
+  height: 100%; /* Full height */
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #2a2a2a;
+  border-radius: 5px;
+  padding: 20px;
+  height: 100%;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto; /* Enable scrolling */
+  padding: 20px;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border: 1px solid #333;
+  border-radius: 5px;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.message {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.message-content {
+  padding: 10px 15px;
+  border-radius: 10px;
+  max-width: 70%; /* Prevent messages from spanning the entire width */
+  background-color: #444; /* Default background for bot messages */
+  color: #fff;
+}
+
+.message.user .message-content {
+  background: #444;
+  color: #fff;
+}
+
+/* Input Box */
+.input-container {
+  display: flex;
+  padding: 15px;
+  background-color: #333;
+  border-top: 1px solid #444;
+  border-radius: 5px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #444;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #6c757d, #343a40); /* Gray gradient */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #5a6268, #23272b); /* Slightly darker gradient on hover */
+}
+
+/* Metrics Section */
+.metrics-section {
+  flex: 1; /* 10% width */
+  padding: 15px;
+  background-color: #1a1a1a; /* Sidebar background */
+  border-left: 1px solid #333; /* Separator */
+  height: 100%; /* Full height */
+  overflow-y: auto;
+}
+
+.metric {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.metric label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #333; /* Background for the progress track */
+  overflow: hidden; /* Ensure the gradient doesn't overflow */
+}
+
+/* For the value part of the progress bar */
+progress::-webkit-progress-value {
+  background: linear-gradient(to right, #007bff, #ff69b4, #ff0000); /* Blue to pink to red */
+  border-radius: 5px; /* Smooth edges */
+}
+
+/* For the track (visible in some browsers) */
+progress::-webkit-progress-bar {
+  background-color: #333; /* Match the progress track */
+}
+
+/* Scrollbar container */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the vertical scrollbar */
+  height: 8px; /* Height of the horizontal scrollbar */
+  background: #343a40; /* Dark background for the scrollbar track */
+  border-radius: 5px;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #6c757d, #343a40); /* Gray gradient */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Scrollbar thumb hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #5a6268, #23272b); /* Slightly darker gradient on hover */
+}
+
+/* Scrollbar corner (where horizontal and vertical scrollbars meet) */
+::-webkit-scrollbar-corner {
+  background: #343a40; /* Same as the scrollbar track */
+}
+

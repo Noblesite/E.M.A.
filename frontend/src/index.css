@@ -1,0 +1,9 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background-color: #121212;
+  color: #ffffff;
+  gap: 10px; /* Add spacing between sections */
+}
